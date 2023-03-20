@@ -20,5 +20,5 @@ pipeline {
     
     // Add your build stages here
     
-  }
+//  }
 }
