@@ -8,6 +8,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
+        echo ""NOTHING
 //        checkout([
 //          $class: 'GitSCM',
 //          branches: [[name: "${params.GIT_BRANCH}"]],
