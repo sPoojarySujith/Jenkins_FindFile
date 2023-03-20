@@ -12,7 +12,7 @@ pipeline {
           $class: 'GitSCM',
           branches: [[name: "${params.GIT_BRANCH}"]],
           userRemoteConfigs: [[
-            url: 'git@github.com:sPoojarySujith/Jenkins_FindFile.git'
+            url: 'https://github.com/sPoojarySujith/Jenkins_FindFile.git'
           ]]
         ])
       }
