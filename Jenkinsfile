@@ -1,10 +1,24 @@
 pipeline {
-    agent any
-    stages {
-        stage('Search for file') {
-            steps {
-                sh 'find $WORKSPACE -name "cucumber.json"'
-            }
-        }
+  agent any
+  
+  parameters {
+    gitParameter branchFilter: '.*', defaultValue: 'develop', name: 'GIT_BRANCH', sortMode: 'NONE', tagFilter: '*', type: 'PT_BRANCH'
+  }
+  
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout([
+          $class: 'GitSCM',
+          branches: [[name: "${params.GIT_BRANCH}"]],
+          userRemoteConfigs: [[
+            url: 'git@github.com:sPoojarySujith/Jenkins_FindFile.git'
+          ]]
+        ])
+      }
     }
+    
+    // Add your build stages here
+    
+  }
 }
